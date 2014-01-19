@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Graphy Test</title>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="../graph.js"></script>
+		<style>
+			body,html{
+				background:black;
+				padding:0;
+				margin:0;
+				font-family:"arial",sans-serif;
+			}
+			#wrap {
+				margin: auto;
+				margin-top: 2em;
+				width: 640px;
+				min-height: 128px;
+				padding: 1em;
+				background: lightgrey;				
+			}
+			.graph{
+				background: white;				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">			
+			<script id="graphone">
+				var dat = [];
+				
+				for (var x=0;x<20;x=x+0.1){
+					dat.push({x:x,y:Math.sin(x*2)+1});
+				}
+				graph.create({
+					name: "graphone",
+					width: 640,
+					height: 256,
+					drag: true,
+					labels: true,
+					hover: true,
+					xlabel: "time",
+					ylabel: "score",
+					xtopx: 640/10,
+					ytopx: 100,
+					data: dat,
+					toLabel: function(x){return x;}
+				});
+			</script>
+		</div>		
+	</body>
+</html>
